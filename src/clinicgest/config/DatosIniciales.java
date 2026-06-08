@@ -2,6 +2,7 @@ package clinicgest.config;
 
 import clinicgest.model.*;
 import clinicgest.service.EspecialidadService;
+import clinicgest.service.PacienteService;
 import clinicgest.service.ProfesionalSaludService;
 import clinicgest.service.UsuarioService;
 
@@ -17,6 +18,8 @@ public class DatosIniciales {
             cargarEspecialidades();
 
             cargarProfesionales();
+
+            cargarPacientes();
 
         } catch (Exception e) {
 
@@ -104,5 +107,59 @@ public class DatosIniciales {
         p2.setMatricula("MP1002");
 
         service.registrar(p2);
+    }
+
+    private static void cargarPacientes()
+            throws Exception {
+
+        PacienteService service =
+                new PacienteService();
+
+        Paciente p1 =
+                new Paciente();
+
+        p1.setDni("35698741");
+        p1.setNombre("Carlos");
+        p1.setApellido("González");
+        p1.setSexo("Masculino");
+        p1.setEmail("carlos@gmail.com");
+        p1.setContacto("385456789");
+        p1.setLocalidad(
+                "Santiago del Estero");
+
+        service.registrarPaciente(
+                p1);
+
+
+        Paciente p2 =
+                new Paciente();
+
+        p2.setDni("40214587");
+        p2.setNombre("María");
+        p2.setApellido("López");
+        p2.setSexo("Femenino");
+        p2.setEmail("maria@gmail.com");
+        p2.setContacto("385555222");
+        p2.setLocalidad(
+                "La Banda");
+
+        service.registrarPaciente(
+                p2);
+
+
+        Paciente p3 =
+                new Paciente();
+
+        p3.setDni("41852369");
+        p3.setNombre("José");
+        p3.setApellido("Fernández");
+        p3.setSexo("Masculino");
+        p3.setEmail("jose@gmail.com");
+        p3.setContacto("385777888");
+        p3.setLocalidad(
+                "Termas");
+
+        service.registrarPaciente(
+                p3);
     }
 }
