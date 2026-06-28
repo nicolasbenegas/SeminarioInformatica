@@ -76,7 +76,7 @@ INSERT INTO usuario_sistema
 VALUES
 
 (
-(SELECT id FROM usuario WHERE dni='20111222'),
+(SELECT id FROM usuario WHERE dni='37119044'),
 'admin',
 '1234',
 TRUE,
@@ -172,7 +172,7 @@ VALUES
 
 (
 (SELECT id FROM usuario WHERE dni='23111444'),
-'001',
+'LEG-01',
 '2024-02-01',
 '1001',
 (SELECT id FROM especialidad
@@ -181,7 +181,7 @@ WHERE nombre='Cardiología')
 
 (
 (SELECT id FROM usuario WHERE dni='24111555'),
-'002',
+'LEG-02',
 '2024-03-01',
 '1002',
 (SELECT id FROM especialidad
@@ -190,7 +190,7 @@ WHERE nombre='Pediatría')
 
 (
 (SELECT id FROM usuario WHERE dni='25111666'),
-'003',
+'LEG-03',
 '2024-04-01',
 '1003',
 (SELECT id FROM especialidad
@@ -199,7 +199,7 @@ WHERE nombre='Traumatología')
 
 (
 (SELECT id FROM usuario WHERE dni='26111777'),
-'004',
+'LEG-04',
 '2024-05-01',
 '1004',
 (SELECT id FROM especialidad
@@ -208,7 +208,7 @@ WHERE nombre='Dermatología')
 
 (
 (SELECT id FROM usuario WHERE dni='27111888'),
-'005',
+'LEG-05',
 '2024-06-01',
 '1005',
 (SELECT id FROM especialidad
