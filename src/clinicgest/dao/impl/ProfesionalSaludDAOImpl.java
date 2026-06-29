@@ -22,8 +22,8 @@ public class ProfesionalSaludDAOImpl
 
         String sqlUsuario =
                 "INSERT INTO usuario " +
-                "(dni,nombre,apellido,sexo,calle,numero_calle,barrio,localidad,email,contacto) " +
-                "VALUES (?,?,?,?,?,?,?,?,?,?)";
+                        "(dni,nombre,apellido,sexo,calle,numero_calle,barrio,localidad,email,contacto) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion()) {
@@ -62,8 +62,8 @@ public class ProfesionalSaludDAOImpl
             PreparedStatement psSistema =
                     cn.prepareStatement(
                             "INSERT INTO usuario_sistema " +
-                            "(id,usuario,clave,activo,rol) " +
-                            "VALUES (?,?,?,?,?)");
+                                    "(id,usuario,clave,activo,rol) " +
+                                    "VALUES (?,?,?,?,?)");
 
             psSistema.setInt(1, id);
             psSistema.setString(
@@ -87,8 +87,8 @@ public class ProfesionalSaludDAOImpl
             PreparedStatement psProfesional =
                     cn.prepareStatement(
                             "INSERT INTO profesional_salud " +
-							"(id,nro_matricula,especialidad_id) " +
-							"VALUES (?,?,?)");
+                                    "(id,nro_matricula,especialidad_id) " +
+                                    "VALUES (?,?,?)");
 
             psProfesional.setInt(
                     1,
@@ -119,8 +119,8 @@ public class ProfesionalSaludDAOImpl
 
         String sql =
                 "UPDATE profesional_salud " +
-                "SET nro_matricula=?, especialidad_id=? " +
-                "WHERE id=?";
+                        "SET nro_matricula=?, especialidad_id=? " +
+                        "WHERE id=?";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();
@@ -173,35 +173,35 @@ public class ProfesionalSaludDAOImpl
             int id) {
 
         String sql =
-        "SELECT " +
-        "u.id, " +
-        "u.dni, " +
-        "u.nombre, " +
-        "u.apellido, " +
-        "u.sexo, " +
-        "u.calle, " +
-        "u.numero_calle, " +
-        "u.barrio, " +
-        "u.localidad, " +
-        "u.email, " +
-        "u.contacto, " +
+                "SELECT " +
+                        "u.id, " +
+                        "u.dni, " +
+                        "u.nombre, " +
+                        "u.apellido, " +
+                        "u.sexo, " +
+                        "u.calle, " +
+                        "u.numero_calle, " +
+                        "u.barrio, " +
+                        "u.localidad, " +
+                        "u.email, " +
+                        "u.contacto, " +
 
-        "us.usuario, " +
-        "us.clave, " +
-        "us.activo, " +
+                        "us.usuario, " +
+                        "us.clave, " +
+                        "us.activo, " +
 
-        "ps.nro_matricula, " +
-        "ps.especialidad_id, " +
+                        "ps.nro_matricula, " +
+                        "ps.especialidad_id, " +
 
-        "e.id AS esp_id, " +
-        "e.nombre AS nombre_especialidad, " +
-        "e.descripcion AS descripcion_especialidad " +
+                        "e.id AS esp_id, " +
+                        "e.nombre AS nombre_especialidad, " +
+                        "e.descripcion AS descripcion_especialidad " +
 
-        "FROM profesional_salud ps " +
-        "INNER JOIN usuario u ON ps.id=u.id " +
-        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
-        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
-        "WHERE ps.id=?";
+                        "FROM profesional_salud ps " +
+                        "INNER JOIN usuario u ON ps.id=u.id " +
+                        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
+                        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
+                        "WHERE ps.id=?";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();
@@ -232,35 +232,35 @@ public class ProfesionalSaludDAOImpl
             String matricula) {
 
         String sql =
-        "SELECT " +
-        "u.id, " +
-        "u.dni, " +
-        "u.nombre, " +
-        "u.apellido, " +
-        "u.sexo, " +
-        "u.calle, " +
-        "u.numero_calle, " +
-        "u.barrio, " +
-        "u.localidad, " +
-        "u.email, " +
-        "u.contacto, " +
+                "SELECT " +
+                        "u.id, " +
+                        "u.dni, " +
+                        "u.nombre, " +
+                        "u.apellido, " +
+                        "u.sexo, " +
+                        "u.calle, " +
+                        "u.numero_calle, " +
+                        "u.barrio, " +
+                        "u.localidad, " +
+                        "u.email, " +
+                        "u.contacto, " +
 
-        "us.usuario, " +
-        "us.clave, " +
-        "us.activo, " +
+                        "us.usuario, " +
+                        "us.clave, " +
+                        "us.activo, " +
 
-        "ps.nro_matricula, " +
-        "ps.especialidad_id, " +
+                        "ps.nro_matricula, " +
+                        "ps.especialidad_id, " +
 
-        "e.id AS esp_id, " +
-        "e.nombre AS nombre_especialidad, " +
-        "e.descripcion AS descripcion_especialidad " +
+                        "e.id AS esp_id, " +
+                        "e.nombre AS nombre_especialidad, " +
+                        "e.descripcion AS descripcion_especialidad " +
 
-        "FROM profesional_salud ps " +
-        "INNER JOIN usuario u ON ps.id=u.id " +
-        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
-        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
-        "WHERE ps.nro_matricula=?";
+                        "FROM profesional_salud ps " +
+                        "INNER JOIN usuario u ON ps.id=u.id " +
+                        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
+                        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
+                        "WHERE ps.nro_matricula=?";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();
@@ -294,35 +294,35 @@ public class ProfesionalSaludDAOImpl
                 new ArrayList<>();
 
         String sql =
-        "SELECT " +
-        "u.id, " +
-        "u.dni, " +
-        "u.nombre, " +
-        "u.apellido, " +
-        "u.sexo, " +
-        "u.calle, " +
-        "u.numero_calle, " +
-        "u.barrio, " +
-        "u.localidad, " +
-        "u.email, " +
-        "u.contacto, " +
+                "SELECT " +
+                        "u.id, " +
+                        "u.dni, " +
+                        "u.nombre, " +
+                        "u.apellido, " +
+                        "u.sexo, " +
+                        "u.calle, " +
+                        "u.numero_calle, " +
+                        "u.barrio, " +
+                        "u.localidad, " +
+                        "u.email, " +
+                        "u.contacto, " +
 
-        "us.usuario, " +
-        "us.clave, " +
-        "us.activo, " +
+                        "us.usuario, " +
+                        "us.clave, " +
+                        "us.activo, " +
 
-        "ps.nro_matricula, " +
-        "ps.especialidad_id, " +
+                        "ps.nro_matricula, " +
+                        "ps.especialidad_id, " +
 
-        "e.id AS esp_id, " +
-        "e.nombre AS nombre_especialidad, " +
-        "e.descripcion AS descripcion_especialidad " +
+                        "e.id AS esp_id, " +
+                        "e.nombre AS nombre_especialidad, " +
+                        "e.descripcion AS descripcion_especialidad " +
 
-        "FROM profesional_salud ps " +
-        "INNER JOIN usuario u ON ps.id=u.id " +
-        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
-        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
-        "ORDER BY u.apellido,u.nombre";
+                        "FROM profesional_salud ps " +
+                        "INNER JOIN usuario u ON ps.id=u.id " +
+                        "INNER JOIN usuario_sistema us ON ps.id=us.id " +
+                        "LEFT JOIN especialidad e ON ps.especialidad_id=e.id " +
+                        "ORDER BY u.apellido,u.nombre";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();
@@ -348,96 +348,96 @@ public class ProfesionalSaludDAOImpl
     }
 
     private ProfesionalSalud construirProfesional(
-        ResultSet rs)
-        throws SQLException {
+            ResultSet rs)
+            throws SQLException {
 
-    ProfesionalSalud profesional =
-            new ProfesionalSalud();
+        ProfesionalSalud profesional =
+                new ProfesionalSalud();
 
-    //==========================
-    // DATOS PERSONALES
-    //==========================
+        //==========================
+        // DATOS PERSONALES
+        //==========================
 
-    profesional.setId(
-            rs.getInt("id"));
+        profesional.setId(
+                rs.getInt("id"));
 
-    profesional.setDni(
-            rs.getString("dni"));
+        profesional.setDni(
+                rs.getString("dni"));
 
-    profesional.setNombre(
-            rs.getString("nombre"));
+        profesional.setNombre(
+                rs.getString("nombre"));
 
-    profesional.setApellido(
-            rs.getString("apellido"));
+        profesional.setApellido(
+                rs.getString("apellido"));
 
-    profesional.setSexo(
-            rs.getString("sexo"));
+        profesional.setSexo(
+                rs.getString("sexo"));
 
-    profesional.setCalle(
-            rs.getString("calle"));
+        profesional.setCalle(
+                rs.getString("calle"));
 
-    profesional.setNumeroCalle(
-            rs.getInt("numero_calle"));
+        profesional.setNumeroCalle(
+                rs.getInt("numero_calle"));
 
-    profesional.setBarrio(
-            rs.getString("barrio"));
+        profesional.setBarrio(
+                rs.getString("barrio"));
 
-    profesional.setLocalidad(
-            rs.getString("localidad"));
+        profesional.setLocalidad(
+                rs.getString("localidad"));
 
-    profesional.setEmail(
-            rs.getString("email"));
+        profesional.setEmail(
+                rs.getString("email"));
 
-    profesional.setContacto(
-            rs.getString("contacto"));
+        profesional.setContacto(
+                rs.getString("contacto"));
 
-    //==========================
-    // USUARIO DEL SISTEMA
-    //==========================
+        //==========================
+        // USUARIO DEL SISTEMA
+        //==========================
 
-    profesional.setUsuario(
-            rs.getString("usuario"));
+        profesional.setUsuario(
+                rs.getString("usuario"));
 
-    profesional.setClave(
-            rs.getString("clave"));
+        profesional.setClave(
+                rs.getString("clave"));
 
-    profesional.setActivo(
-            rs.getBoolean("activo"));
+        profesional.setActivo(
+                rs.getBoolean("activo"));
 
-    profesional.setRol(
-            RolUsuario.PROFESIONAL);
+        profesional.setRol(
+                RolUsuario.PROFESIONAL);
 
-    //==========================
-    // DATOS PROFESIONALES
-    //==========================
+        //==========================
+        // DATOS PROFESIONALES
+        //==========================
 
-    profesional.setMatricula(
-            rs.getString("nro_matricula"));
+        profesional.setMatricula(
+                rs.getString("nro_matricula"));
 
-    Integer especialidadId =
-            (Integer) rs.getObject(
-                    "especialidad_id");
+        Integer especialidadId =
+                (Integer) rs.getObject(
+                        "especialidad_id");
 
-    if (especialidadId != null) {
+        if (especialidadId != null) {
 
-        Especialidad especialidad =
-                new Especialidad();
+            Especialidad especialidad =
+                    new Especialidad();
 
-        especialidad.setId(
-                especialidadId);
+            especialidad.setId(
+                    especialidadId);
 
-        especialidad.setNombre(
-                rs.getString(
-                        "nombre_especialidad"));
+            especialidad.setNombre(
+                    rs.getString(
+                            "nombre_especialidad"));
 
-        especialidad.setDescripcion(
-                rs.getString(
-                        "descripcion_especialidad"));
+            especialidad.setDescripcion(
+                    rs.getString(
+                            "descripcion_especialidad"));
 
-        profesional.setEspecialidad(
-                especialidad);
+            profesional.setEspecialidad(
+                    especialidad);
+        }
+
+        return profesional;
     }
-
-    return profesional;
-	}
 }

@@ -15,6 +15,7 @@ import clinicgest.model.Turno;
  */
 public class MenuTurnos {
 
+    //Atributos
     private final TurnoController turnoController;
     private final PacienteController pacienteController;
     private final ProfesionalController profesionalController;

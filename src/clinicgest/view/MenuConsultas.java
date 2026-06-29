@@ -14,6 +14,7 @@ import clinicgest.model.SolicitudExamen;
  */
 public class MenuConsultas {
 
+    //Atributos
     private final ConsultaController controller;
 
     private final ConsultaView consultaView;

@@ -11,6 +11,7 @@ import clinicgest.model.ProfesionalSalud;
  */
 public class ConsultaView {
 
+    //Métodos
     public Consulta cargarConsulta() {
 
         Consulta consulta =

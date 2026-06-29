@@ -22,8 +22,8 @@ public class ReporteDAOImpl
 
         String sql =
                 "INSERT INTO reporte " +
-                "(administrador_id,tipo,fecha_generacion,contenido) " +
-                "VALUES (?,?,?,?)";
+                        "(administrador_id,tipo,fecha_generacion,contenido) " +
+                        "VALUES (?,?,?,?)";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();
@@ -61,11 +61,11 @@ public class ReporteDAOImpl
 
         String sql =
                 "UPDATE reporte " +
-                "SET administrador_id=?, " +
-                "tipo=?, " +
-                "fecha_generacion=?, " +
-                "contenido=? " +
-                "WHERE id=?";
+                        "SET administrador_id=?, " +
+                        "tipo=?, " +
+                        "fecha_generacion=?, " +
+                        "contenido=? " +
+                        "WHERE id=?";
 
         try (Connection cn =
                      ConexionBD.obtenerConexion();

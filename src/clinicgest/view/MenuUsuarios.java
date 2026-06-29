@@ -11,6 +11,7 @@ import clinicgest.model.UsuarioSistema;
  */
 public class MenuUsuarios {
 
+    //Atributos
     private final UsuarioController controller;
     private final UsuarioView view;
 

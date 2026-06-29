@@ -10,6 +10,7 @@ import clinicgest.model.Reporte;
  */
 public class MenuReportes {
 
+    //Atributos
     private final ReporteController controller;
 
     public MenuReportes() {

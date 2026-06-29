@@ -10,6 +10,7 @@ import clinicgest.model.Paciente;
  */
 public class MenuRecepcionista {
 
+    //Atributos
     private final MenuTurnos menuTurnos;
 
     private final PacienteController

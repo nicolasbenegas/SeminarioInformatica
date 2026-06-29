@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class MenuProfesional {
 
+    //Atributos
 	private final ConsultaController consultaController;
     private final MenuConsultas menuConsultas;
 

@@ -11,6 +11,7 @@ import clinicgest.model.Especialidad;
  */
 public class MenuEspecialidades {
 
+    //Atributos
     private final EspecialidadController controller;
     private final EspecialidadView view;
 

@@ -11,6 +11,7 @@ import clinicgest.model.ProfesionalSalud;
  */
 public class MenuProfesionales {
 
+    //Atributos
     private final ProfesionalController controller;
     private final ProfesionalView view;
 

@@ -9,182 +9,180 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-
-Clase "EspecialidadDAOImpl"
-Acceso a datos - Implementación
-
-Capa -> DAO
-*/
+ * Clase "EspecialidadDAOImpl"
+ * Acceso a datos - Implementación
+ * Capa -> DAO
+ */
 public class EspecialidadDAOImpl
-implements EspecialidadDAO {
+        implements EspecialidadDAO {
 
-@Override
-public void guardar(
-Especialidad especialidad) {
+    @Override
+    public void guardar(
+            Especialidad especialidad) {
 
- String sql =
-         "INSERT INTO especialidad " +
-         "(nombre,descripcion) " +
-         "VALUES (?,?)";
+        String sql =
+                "INSERT INTO especialidad " +
+                        "(nombre,descripcion) " +
+                        "VALUES (?,?)";
 
- try (Connection cn =
-              ConexionBD.obtenerConexion();
-      PreparedStatement ps =
-              cn.prepareStatement(sql)) {
+        try (Connection cn =
+                     ConexionBD.obtenerConexion();
+             PreparedStatement ps =
+                     cn.prepareStatement(sql)) {
 
-     ps.setString(
-             1,
-             especialidad.getNombre());
+            ps.setString(
+                    1,
+                    especialidad.getNombre());
 
-     ps.setString(
-             2,
-             especialidad.getDescripcion());
+            ps.setString(
+                    2,
+                    especialidad.getDescripcion());
 
-     ps.executeUpdate();
+            ps.executeUpdate();
 
- } catch (Exception ex) {
+        } catch (Exception ex) {
 
-     ex.printStackTrace();
- }
+            ex.printStackTrace();
+        }
 
-}
+    }
 
-@Override
-public void actualizar(
-Especialidad especialidad) {
+    @Override
+    public void actualizar(
+            Especialidad especialidad) {
 
- String sql =
-         "UPDATE especialidad " +
-         "SET nombre=?, descripcion=? " +
-         "WHERE id=?";
+        String sql =
+                "UPDATE especialidad " +
+                        "SET nombre=?, descripcion=? " +
+                        "WHERE id=?";
 
- try (Connection cn =
-              ConexionBD.obtenerConexion();
-      PreparedStatement ps =
-              cn.prepareStatement(sql)) {
+        try (Connection cn =
+                     ConexionBD.obtenerConexion();
+             PreparedStatement ps =
+                     cn.prepareStatement(sql)) {
 
-     ps.setString(
-             1,
-             especialidad.getNombre());
+            ps.setString(
+                    1,
+                    especialidad.getNombre());
 
-     ps.setString(
-             2,
-             especialidad.getDescripcion());
+            ps.setString(
+                    2,
+                    especialidad.getDescripcion());
 
-     ps.setInt(
-             3,
-             especialidad.getId());
+            ps.setInt(
+                    3,
+                    especialidad.getId());
 
-     ps.executeUpdate();
+            ps.executeUpdate();
 
- } catch (Exception ex) {
+        } catch (Exception ex) {
 
-     ex.printStackTrace();
- }
+            ex.printStackTrace();
+        }
 
-}
+    }
 
-@Override
-public void eliminar(
-int id) {
+    @Override
+    public void eliminar(
+            int id) {
 
- try (Connection cn =
-              ConexionBD.obtenerConexion();
-      PreparedStatement ps =
-              cn.prepareStatement(
-                      "DELETE FROM especialidad WHERE id=?")) {
+        try (Connection cn =
+                     ConexionBD.obtenerConexion();
+             PreparedStatement ps =
+                     cn.prepareStatement(
+                             "DELETE FROM especialidad WHERE id=?")) {
 
-     ps.setInt(1, id);
+            ps.setInt(1, id);
 
-     ps.executeUpdate();
+            ps.executeUpdate();
 
- } catch (Exception ex) {
+        } catch (Exception ex) {
 
-     ex.printStackTrace();
- }
+            ex.printStackTrace();
+        }
 
-}
+    }
 
-@Override
-public Especialidad buscarPorId(
-int id) {
+    @Override
+    public Especialidad buscarPorId(
+            int id) {
 
- try (Connection cn =
-              ConexionBD.obtenerConexion();
-      PreparedStatement ps =
-              cn.prepareStatement(
-                      "SELECT * FROM especialidad WHERE id=?")) {
+        try (Connection cn =
+                     ConexionBD.obtenerConexion();
+             PreparedStatement ps =
+                     cn.prepareStatement(
+                             "SELECT * FROM especialidad WHERE id=?")) {
 
-     ps.setInt(1, id);
+            ps.setInt(1, id);
 
-     ResultSet rs =
-             ps.executeQuery();
+            ResultSet rs =
+                    ps.executeQuery();
 
-     if (rs.next()) {
+            if (rs.next()) {
 
-         return construirEspecialidad(
-                 rs);
-     }
+                return construirEspecialidad(
+                        rs);
+            }
 
- } catch (Exception ex) {
+        } catch (Exception ex) {
 
-     ex.printStackTrace();
- }
+            ex.printStackTrace();
+        }
 
- return null;
+        return null;
 
-}
+    }
 
-@Override
-public List
-listarTodos() {
+    @Override
+    public List
+    listarTodos() {
 
- List<Especialidad> lista =
-         new ArrayList<>();
+        List<Especialidad> lista =
+                new ArrayList<>();
 
- try (Connection cn =
-              ConexionBD.obtenerConexion();
-      PreparedStatement ps =
-              cn.prepareStatement(
-                      "SELECT * FROM especialidad ORDER BY id")) {
+        try (Connection cn =
+                     ConexionBD.obtenerConexion();
+             PreparedStatement ps =
+                     cn.prepareStatement(
+                             "SELECT * FROM especialidad ORDER BY id")) {
 
-     ResultSet rs =
-             ps.executeQuery();
+            ResultSet rs =
+                    ps.executeQuery();
 
-     while (rs.next()) {
+            while (rs.next()) {
 
-         lista.add(
-                 construirEspecialidad(
-                         rs));
-     }
+                lista.add(
+                        construirEspecialidad(
+                                rs));
+            }
 
- } catch (Exception ex) {
+        } catch (Exception ex) {
 
-     ex.printStackTrace();
- }
+            ex.printStackTrace();
+        }
 
- return lista;
+        return lista;
 
-}
+    }
 
-private Especialidad
-construirEspecialidad(
-ResultSet rs)
-throws SQLException {
+    private Especialidad
+    construirEspecialidad(
+            ResultSet rs)
+            throws SQLException {
 
- Especialidad especialidad =
-         new Especialidad();
+        Especialidad especialidad =
+                new Especialidad();
 
- especialidad.setId(
-         rs.getInt("id"));
+        especialidad.setId(
+                rs.getInt("id"));
 
- especialidad.setNombre(
-         rs.getString("nombre"));
+        especialidad.setNombre(
+                rs.getString("nombre"));
 
- especialidad.setDescripcion(
-         rs.getString("descripcion"));
+        especialidad.setDescripcion(
+                rs.getString("descripcion"));
 
- return especialidad;
+        return especialidad;
 
-}
+    }
 }

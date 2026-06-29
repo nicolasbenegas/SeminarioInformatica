@@ -9,7 +9,7 @@ import clinicgest.model.SolicitudExamen;
  */
 public class SolicitudExamenView {
 
-	//Métodos
+    //Métodos
     public SolicitudExamen
     cargarExamen() {
 
